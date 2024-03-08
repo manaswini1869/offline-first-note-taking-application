@@ -1,0 +1,17 @@
+Checklist to completion of the assessment:
+1. Complete the note taking app (Read the React Native docs, install the compiler, playaround). 
+Complete the application in iOS, easy for testing with personal phone.
+https://reactnative.dev/docs/getting-started
+https://reactnative.dev/docs/handling-text-input
+https://reactnative.dev/docs/using-a-scrollview
+https://reactnative.dev/docs/using-a-listview
+https://reactnative.dev/docs/handling-touches
+
+
+2. Read on AWS Amplify (Understand what the service is used for, read on how to integrate, read the docx)
+
+3. Integrate the application with AWS Amplify
+
+4. Testing
+
+5. Record Demo Video
