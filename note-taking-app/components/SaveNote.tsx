@@ -5,15 +5,13 @@ import { Note, savingNote } from "../services/noteStoreService";
 import { useNavigation } from "@react-navigation/native";
 import { ScreenNavigation } from "../types";
 
+// The back arrow icon to save notes automatically, UX feature
 
 export const SaveNote: React.FC<Note> = ({text, id}) => {
     const navigation = useNavigation<ScreenNavigation>();
     const saveNoteHandler = async () => {
         await savingNote(text, id);
-        // navigation.navigate("Home");
-        if (navigation.canGoBack()){
-          navigation.goBack();
-        }
+        navigation.navigate("Home");
       }
     return (
         <Pressable onPress={saveNoteHandler}>

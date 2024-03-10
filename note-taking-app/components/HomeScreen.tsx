@@ -1,15 +1,21 @@
-import { useNavigation } from "@react-navigation/native";
 import React  from "react";
-import {Button} from 'react-native';
-import { ScreenNavigation } from "../types";
+import {StyleSheet, View} from 'react-native';
 import { SavedNotesList } from "./SavedNotesList";
 
+
+// App home screen, plane layout with a list of saved notes 
+
 export const HomeScreen: React.FC = () => {
-    const navigation = useNavigation<ScreenNavigation>();
-    
     return (
-    <>
+    <View style={styles.container}>
     <SavedNotesList />
-      </>
+      </View>
     );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: "#fff",
+    flex: 1,
+  },
+});

@@ -1,45 +1,54 @@
-import React, { useEffect, useLayoutEffect, useState } from "react";
+import React from "react";
 import { TextInput, Button, StyleSheet } from "react-native";
 import { getNote, savingNote } from "../services/noteStoreService";
-import { useNavigation } from "@react-navigation/native";
+import { useFocusEffect, useNavigation } from "@react-navigation/native";
 import { ScreenNavigation } from "../types";
 import { SaveNote } from "./SaveNote";
 
+// Getting the note text in the Notes array, updating the notes accordingly
+
 type Props = {
-    savingNote: (text: string) => void;
-    noteId: string | undefined;
+  noteId?: string;
 }
 
 export const NoteInput: React.FC<Props> = ({noteId}) => {
-    const [text, setText] = useState<string>("");
+    const [text, onChangeText] = React.useState<string>("");
     const navigation = useNavigation<ScreenNavigation>();
     
-    useLayoutEffect(() => {
-        navigation.setOptions({
-          headerLeft: () => noteId ?  (<SaveNote id={noteId ?? ""} text={text} />) : (<></>),
-            });
-    }, [navigation, text, noteId])
-    useEffect(() => {
-      if(noteId) {
-        getNote(noteId).then(result => setText(result.text ?? ''));
-      }
-    }, []);
+    React.useLayoutEffect(() => {
+      navigation.setOptions({
+        headerLeft: () => <SaveNote text={text} id={noteId ?? ""} />,
+      });
+    }, [navigation, text, noteId]);
+    useFocusEffect(
+      React.useCallback(() => {
+        if (noteId) {
+          getNote(noteId).then((result) => onChangeText(result?.text ?? ""));
+        }
+      }, [noteId])
+    );
     return (
-        <>
-        <TextInput multiline={true} style={styles.textInput} value={text} onChangeText={setText} autoFocus={true}/>
-        </>
-    )
-}
+      <>
+        <TextInput
+          autoFocus={true}
+          onChangeText={onChangeText}
+          value={text}
+          multiline={true}
+          style={styles.noteInput}
+          textAlignVertical="top"
+        />
+      </>
+    );
+  };
 
 
-const styles = StyleSheet.create({
-    textInput:{
-      backgroundColor: "#fef7de",
-      width: '100%',
+  const styles = StyleSheet.create({
+    noteInput: {
+      fontSize: 16,
       flex: 1,
-      fontSize: 16, 
-      paddingHorizontal: 20,
       paddingTop: 30,
       paddingBottom: 20,
+      paddingHorizontal: 20,
+      backgroundColor: "#ffb70342",
     },
   });

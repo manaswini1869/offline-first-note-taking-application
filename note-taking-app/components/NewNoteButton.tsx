@@ -3,6 +3,9 @@ import { FontAwesome } from "@expo/vector-icons";
 import { Pressable } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { ScreenNavigation } from "../types";
+
+// New note addition icon component
+
 export const NewNoteButton: React.FC = () => {
     const navigation = useNavigation<ScreenNavigation>();
     return (

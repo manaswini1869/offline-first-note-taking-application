@@ -4,47 +4,60 @@ import { View, Text, StyleSheet, ScrollView, Pressable } from "react-native";
 import { Note, getAllNotes } from "../services/noteStoreService";
 import { ScreenNavigation } from "../types";
 
+
+// Home screen component displays the existing notes saved
+
 export const SavedNotesList: React.FC = () => {
     const navigation = useNavigation<ScreenNavigation>();
-    const [notes, setNotes] = useState<Note[]>([]);
+    const [notes, setNotes] = useState<Note[] | undefined>();
+    
     useFocusEffect(() => {
         getAllNotes().then((result) => setNotes(result.notes))
     });
-    return (
-    <View style={styles.container}>
-        <ScrollView>
-        {notes.map((note) => (
-            <Pressable key={note.id} onPress={()=> navigation.navigate('EditNote', {noteId: note.id})}>
-        <View style={styles.row}>
-            <Text style={styles.note} key={note.id}>
-                {note.text.length === 0 ? '(Blank note)' : note.text}
-            </Text>
-        </View> 
-        </Pressable>       
-        ))}
-        </ScrollView>
-    </View>
-      
-    );
+
+return (
+    <ScrollView>
+      {notes?.map(({ id, text }) => {
+        return (
+          <Pressable
+            key={id}
+            onPress={() => navigation.navigate("EditNote", { noteId: id })}
+            style={({ pressed }) => [
+              styles.noteContainer,
+              {
+                backgroundColor: pressed ? "#ffb70342" : "#fff",
+              },
+            ]}
+          >
+            <View key={id} style={styles.row}>
+              <Text key={id} style={styles.note}>
+                {text.length === 0 ? "(Blank note)" : text}
+              </Text>
+            </View>
+          </Pressable>
+        );
+      })}
+    </ScrollView>
+  );
 };
 
 const styles = StyleSheet.create({
-    container:{
-        width: "100%",
-        flex: 1,
-        height: 90,
+    note: {
+      paddingVertical: 20,
+      width: "100%",
+      fontSize: 16,
     },
     row: {
-        width: "90%",
-        borderBottomWidth: 1,
-        borderBottomColor:  "#e6e6e6",
-        alignSelf: "center",
-        height: 90,
-        justifyContent: "center"
+      borderBottomColor: "#e6e6e6",
+      borderBottomWidth: 1,
+      width: "90%",
+      alignSelf: "center",
+      flex: 1,
+      justifyContent: "center",
     },
-    note: {
-        paddingVertical: 20,
-        width: "100%",
-        fontSize: 16,
+    noteContainer: {
+      width: "100%",
+      flex: 1,
+      height: 80,
     },
-})
+  });
