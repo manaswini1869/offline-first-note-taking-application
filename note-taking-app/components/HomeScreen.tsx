@@ -1,16 +1,16 @@
+import { useNavigation } from "@react-navigation/native";
 import React  from "react";
-import {Text, Button} from 'react-native';
+import {Button} from 'react-native';
+import { ScreenNavigation } from "../types";
+import { SavedNotesList } from "./SavedNotesList";
 
-type Props = {
-    toggleNewNote: (toggle: boolean) => void;
-}
-
-export const HomeScreen: React.FC<Props> = ({toggleNewNote}) => {
+export const HomeScreen: React.FC = () => {
+    const navigation = useNavigation<ScreenNavigation>();
+    
     return (
-        <>
-      <Text>Home Screen</Text>
-      <Button onPress={() => toggleNewNote(true)} title='New Note'/>
+    <>
+    <SavedNotesList />
+      <Button onPress={()=> navigation.navigate("EditNote") } title='New Note'/>
       </>
     );
-}
-
+};

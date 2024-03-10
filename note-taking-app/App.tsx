@@ -1,24 +1,22 @@
 import React, { useState } from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import  { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
-import AsyncStorage  from '@react-native-async-storage/async-storage'
-import { NoteInput } from './components/NoteInput';
 import { HomeScreen } from './components/HomeScreen';
+import { EditNote } from './components/EditNote';
+import { RootStackParamList } from './types';
 
-export default function App() {
-  const [ createNewNote, setCreateNewNote ] = useState<boolean>(false);
-  const savingNote = async (text: string) => {
-    await AsyncStorage.setItem("note", text)
-    setCreateNewNote(false);
-  }
+const Stack = createNativeStackNavigator<RootStackParamList>();
+export default function App() { 
   return (
-    <View style={styles.container}>
+    <NavigationContainer>
       <StatusBar style="auto" />
-      {createNewNote ? (<NoteInput savingNote={savingNote} />) : 
-      (<HomeScreen toggleNewNote={setCreateNewNote}/>)
-  }
-      
-    </View>
+    <Stack.Navigator>
+    <Stack.Screen name="Home" component={HomeScreen}/>
+    <Stack.Screen name="EditNote" component={EditNote}/>
+    </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
