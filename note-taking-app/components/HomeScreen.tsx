@@ -10,7 +10,6 @@ export const HomeScreen: React.FC = () => {
     return (
     <>
     <SavedNotesList />
-      <Button onPress={()=> navigation.navigate("EditNote") } title='New Note'/>
       </>
     );
 };

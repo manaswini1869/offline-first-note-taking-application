@@ -1,28 +1,47 @@
-import { useFocusEffect } from "@react-navigation/native";
+import { useFocusEffect, useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, ScrollView, Pressable } from "react-native";
 import { Note, getAllNotes } from "../services/noteStoreService";
+import { ScreenNavigation } from "../types";
 
 export const SavedNotesList: React.FC = () => {
-    const [notes, setNotes] = useState<Note[] | undefined>([]);
+    const navigation = useNavigation<ScreenNavigation>();
+    const [notes, setNotes] = useState<Note[]>([]);
     useFocusEffect(() => {
         getAllNotes().then((result) => setNotes(result.notes))
     });
     return (
-    <View>
+    <View style={styles.container}>
+        <ScrollView>
         {notes.map((note) => (
+            <Pressable key={note.id} onPress={()=> navigation.navigate('EditNote', {noteId: note.id})}>
         <View style={styles.row}>
-        <Text style={styles.note}key={note.id}>{note.text}
-        </Text>
-        </View>        
+            <Text style={styles.note} key={note.id}>
+                {note.text.length === 0 ? '(Blank note)' : note.text}
+            </Text>
+        </View> 
+        </Pressable>       
         ))}
+        </ScrollView>
     </View>
       
-    )
-}
+    );
+};
 
 const styles = StyleSheet.create({
-    row: {},
+    container:{
+        width: "100%",
+        flex: 1,
+        height: 90,
+    },
+    row: {
+        width: "90%",
+        borderBottomWidth: 1,
+        borderBottomColor:  "#e6e6e6",
+        alignSelf: "center",
+        height: 90,
+        justifyContent: "center"
+    },
     note: {
         paddingVertical: 20,
         width: "100%",
