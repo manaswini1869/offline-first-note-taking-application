@@ -1,7 +1,7 @@
 # Offline-First Note Taking App
 
 ## Overview
-This is an offline-first note-taking React Native application designed to allow users to write down text even when their device is not connected to the internet. It utilizes AWS Amplify for synchronization, enabling seamless data transfer to AWS when the device reconnects to the internet.
+This is an offline-first note-taking React Native application designed to allow users to write down text even when their device is not connected to the internet. It utilizes AWS Amplify and DataStore for synchronization, enabling seamless data transfer to AWS when the device reconnects to the internet.
 
 ## Features
 - **Offline Functionality**: Users can create, read, update, and delete notes locally on their device even without an internet connection.
@@ -31,7 +31,7 @@ This is an offline-first note-taking React Native application designed to allow 
 
 # Note Taking App
 This is a normal note taking application developed using React Native to be integrated with AWS Amplify in the later stages of development.
-This applciation code base was used in the integrated offline first note taking application.
+This application code base was used in the integrated offline first note taking application.
 
 # Amplified todo
 This is a learning objectified application solely developed to refresh my understandings on AWS Amplify. This application was developed following the tutorial in the documentation provided by Amplify.
