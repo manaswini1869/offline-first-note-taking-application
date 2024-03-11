@@ -1,0 +1,22 @@
+{
+  "api": {
+    "amplifiedtodo": {
+      "dependsOn": [],
+      "output": {
+        "authConfig": {
+          "additionalAuthenticationProviders": [],
+          "defaultAuthentication": {
+            "apiKeyConfig": {
+              "apiKeyExpirationDate": "2024-03-17T23:28:14.812Z",
+              "apiKeyExpirationDays": 7,
+              "description": "todo"
+            },
+            "authenticationType": "API_KEY"
+          }
+        }
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "AppSync"
+    }
+  }
+}
