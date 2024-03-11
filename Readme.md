@@ -36,3 +36,4 @@ This application code base was used in the integrated offline first note taking 
 # Amplified todo
 This is a learning objectified application solely developed to refresh my understandings on AWS Amplify. This application was developed following the tutorial in the documentation provided by Amplify.
 
+App Demo: https://drive.google.com/file/d/18xT3itXPkYzbeFrEkNiCyfShl1nQrm2v/view?usp=sharing
