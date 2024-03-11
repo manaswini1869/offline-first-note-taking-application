@@ -20,7 +20,7 @@ export const getNote = async id => {
   }
 }
 
-export const savingNote = async (text, noteId) => {
+export const saveNote = async (text, noteId) => {
   try {
     const noteStore = await getAllNotes()
 

@@ -18,9 +18,10 @@ https://egghead.io/lessons/javascript-building-offline-first-cross-platform-apps
 https://docs.amplify.aws/react-native/start/getting-started/setup/
 
 3. Integrate the normal application with offline AWS Amplify
-Done! 
+Done! Created a new application using npx create-expo-app command and initialized the amplify app using npx amplify-app
 
 4. Testing
 Done! Tested the application using both an emulator and web browser.
 
 5. Record Demo Video
+Done!

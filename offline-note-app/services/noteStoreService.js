@@ -3,6 +3,10 @@ import { Notes } from '../src/models';
 
 // All the business logic functions for CRUD operations on the Note model should go here.
 
+// Removed store key, datastore is used for quering
+
+
+// Getting all notes function
 export const getAllNotes = async () => {
   try {
     const notes = await DataStore.query(Notes);
@@ -14,6 +18,7 @@ export const getAllNotes = async () => {
   }
 }
 
+// Getting note by id function, for edit function
 export const getNote = async (id) => {
   try {
     const note = await DataStore.query(Notes, id);
@@ -24,6 +29,7 @@ export const getNote = async (id) => {
   }
 }
 
+// Saving a new note
 export const saveNote = async (text, noteId) => {
   try {
     if (noteId) {
@@ -45,6 +51,7 @@ export const saveNote = async (text, noteId) => {
   }
 }
 
+// Delete the note with the given ID 
 export const deleteNote = async (noteId) => {
   try {
     const noteToDelete = await DataStore.query(Notes, noteId);

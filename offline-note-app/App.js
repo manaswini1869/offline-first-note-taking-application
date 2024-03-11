@@ -12,6 +12,8 @@ import { HomeScreen } from "./components/HomeScreen"
 import { EditNoteScreen } from "./components/EditNoteScreen"
 import { NewNoteButton } from "./components/NewNoteButton"
 
+// Main inlet to the application, home and edit screen navigator
+
 const Stack = createNativeStackNavigator()
 export default function App() {
   return (
