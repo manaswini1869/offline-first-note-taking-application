@@ -1,7 +1,7 @@
 export const schema = {
     "models": {
-        "Message": {
-            "name": "Message",
+        "Notes": {
+            "name": "Notes",
             "fields": {
                 "id": {
                     "name": "id",
@@ -10,15 +10,8 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
-                "title": {
-                    "name": "title",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": true,
-                    "attributes": []
-                },
-                "color": {
-                    "name": "color",
+                "text": {
+                    "name": "text",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
@@ -42,11 +35,27 @@ export const schema = {
                 }
             },
             "syncable": true,
-            "pluralName": "Messages",
+            "pluralName": "Notes",
             "attributes": [
                 {
                     "type": "model",
                     "properties": {}
+                },
+                {
+                    "type": "auth",
+                    "properties": {
+                        "rules": [
+                            {
+                                "allow": "public",
+                                "operations": [
+                                    "create",
+                                    "update",
+                                    "delete",
+                                    "read"
+                                ]
+                            }
+                        ]
+                    }
                 }
             ]
         }
@@ -54,5 +63,5 @@ export const schema = {
     "enums": {},
     "nonModels": {},
     "codegenVersion": "3.4.4",
-    "version": "54253332ca03b04bb618a5e85db5ff81"
+    "version": "2f90b4f88d35603797cbd09d5a21caf1"
 };

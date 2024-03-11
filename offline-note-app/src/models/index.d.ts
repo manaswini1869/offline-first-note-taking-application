@@ -6,32 +6,30 @@ import { LazyLoading, LazyLoadingDisabled } from "@aws-amplify/datastore";
 
 
 
-type EagerMessage = {
+type EagerNotes = {
   readonly [__modelMeta__]: {
-    identifier: ManagedIdentifier<Message, 'id'>;
+    identifier: ManagedIdentifier<Notes, 'id'>;
     readOnlyFields: 'createdAt' | 'updatedAt';
   };
   readonly id: string;
-  readonly title: string;
-  readonly color?: string | null;
+  readonly text?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
 
-type LazyMessage = {
+type LazyNotes = {
   readonly [__modelMeta__]: {
-    identifier: ManagedIdentifier<Message, 'id'>;
+    identifier: ManagedIdentifier<Notes, 'id'>;
     readOnlyFields: 'createdAt' | 'updatedAt';
   };
   readonly id: string;
-  readonly title: string;
-  readonly color?: string | null;
+  readonly text?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
 
-export declare type Message = LazyLoading extends LazyLoadingDisabled ? EagerMessage : LazyMessage
+export declare type Notes = LazyLoading extends LazyLoadingDisabled ? EagerNotes : LazyNotes
 
-export declare const Message: (new (init: ModelInit<Message>) => Message) & {
-  copyOf(source: Message, mutator: (draft: MutableModel<Message>) => MutableModel<Message> | void): Message;
+export declare const Notes: (new (init: ModelInit<Notes>) => Notes) & {
+  copyOf(source: Notes, mutator: (draft: MutableModel<Notes>) => MutableModel<Notes> | void): Notes;
 }

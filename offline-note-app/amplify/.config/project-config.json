@@ -1,10 +1,10 @@
 {
-  "projectName": "offline-note-app",
-  "version": "3.1",
-  "frontend": "javascript",
   "providers": [
     "awscloudformation"
   ],
+  "projectName": "offlinenoteapp",
+  "version": "3.1",
+  "frontend": "javascript",
   "javascript": {
     "framework": "react-native",
     "config": {

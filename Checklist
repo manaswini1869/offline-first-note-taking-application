@@ -1,6 +1,7 @@
 Checklist to completion of the assessment:
 1. Complete the note taking app (Read the React Native docs, install the compiler, playaround). 
-Complete the application in iOS, easy for testing with personal phone.
+Complete the application in Android due to lack of iOS systems, easy for testing with personal phone.
+References used:
 https://reactnative.dev/docs/getting-started
 https://reactnative.dev/docs/handling-text-input
 https://reactnative.dev/docs/using-a-scrollview
@@ -8,12 +9,18 @@ https://reactnative.dev/docs/using-a-listview
 https://reactnative.dev/docs/handling-touches
 https://reactnavigation.org/docs/getting-started/
 
-Completed
+Completed!
 
 2. Read on AWS Amplify (Understand what the service is used for, read on how to integrate, read the docx)
-Done! Created a sample messaging application with amplify
+Done! Created a sample todo application with amplify.
+References used:
+https://egghead.io/lessons/javascript-building-offline-first-cross-platform-apps-with-expo-and-amplify-datastore
+https://docs.amplify.aws/react-native/start/getting-started/setup/
+
 3. Integrate the normal application with offline AWS Amplify
+Done! 
 
 4. Testing
+Done! Tested the application using both an emulator and web browser.
 
 5. Record Demo Video
